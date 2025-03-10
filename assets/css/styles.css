@@ -1,0 +1,191 @@
+@import 'tailwindcss';
+
+/*noinspection ALL*/
+@theme {
+  --color-bg: #000000;
+  --color-bgLight: #1a1a1a;
+  --color-bgLightest: #353535;
+
+  --color-fg: #ffffff;
+  --color-fgDark: #ffffffd9;
+
+  --animate-moveup: MoveUpInitial 0.3s forwards, MoveUpEnd 0.3s forwards 0.2s;
+  @keyframes MoveUpInitial {
+    100% {
+      transform: translate3d(0, -200%, 0);
+    }
+  }
+  @keyframes MoveUpEnd {
+    0% {
+      transform: translate3d(0, 200%, 0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  max-width: 71.75rem;
+}
+
+@utility text-headline-1 {
+  font-size: 2rem;
+  line-height: 2.25rem;
+  font-weight: var(--font-weight-semibold);
+  @media (width >= theme(--breakpoint-md)) {
+    font-size: 3.75rem;
+    line-height: 4rem;
+  }
+}
+@utility text-headline-2 {
+  font-size: 1.75rem;
+  line-height: 2.125rem;
+  font-weight: var(--font-weight-semibold);
+  @media (width >= theme(--breakpoint-md)) {
+    font-size: 3.25rem;
+    line-height: 3.5rem;
+  }
+}
+@utility text-headline-3 {
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
+  font-weight: var(--font-weight-semibold);
+  @media (width >= theme(--breakpoint-md)) {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+}
+/*noinspection ALL*/
+@utility text-headline-4 {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: var(--font-weight-medium);
+  @media (width >= theme(--breakpoint-md)) {
+    font-size: 2rem;
+    line-height: 2.4375rem;
+  }
+}
+@utility text-body-1 {
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  font-weight: var(--font-weight-medium);
+  @media (width >= theme(--breakpoint-md)) {
+    font-size: 1.5rem;
+    line-height: 1.8125rem;
+  }
+}
+@utility text-body-2 {
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  font-weight: var(--font-weight-regular);
+  @media (width >= theme(--breakpoint-md)) {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+@utility text-body-3 {
+  font-size: 0.875rem;
+  line-height: 1.0625rem;
+  font-weight: var(--font-weight-regular);
+  @media (width >= theme(--breakpoint-md)) {
+    font-size: 1rem;
+    line-height: 1.1875rem;
+  }
+}
+
+@utility bevel {
+  clip-path: polygon(
+    var(--s) 0%,
+    calc(100% - var(--s)) 0%,
+    100% var(--s),
+    100% calc(100% - var(--s)),
+    calc(100% - var(--s)) 100%,
+    var(--s) 100%,
+    0% calc(100% - var(--s)),
+    0% var(--s)
+  );
+}
+@utility bevel-* {
+  --s: calc(var(--spacing) * --value(integer));
+}
+@utility union {
+  clip-path: polygon(
+    var(--s) 0,
+    calc(100% - var(--s)) 0,
+    100% var(--s),
+    100% calc(50% - var(--s)),
+    calc(100% - var(--s)) 50%,
+    100% calc(50% + var(--s)),
+    100% calc(100% - var(--s)),
+    calc(100% - var(--s)) 100%,
+    var(--s) 100%,
+    0 calc(100% - var(--s)),
+    0 calc(50% + var(--s)),
+    var(--s) 50%,
+    0 calc(50% - var(--s)),
+    0 var(--s)
+  );
+}
+@utility union-* {
+  --s: calc(var(--spacing) * --value(integer));
+}
+
+@utility hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility font-inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply 'group inline-flex cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-full font-medium whitespace-nowrap transition-colors';
+
+    &[data-size="small"] {
+      @apply 'px-4 py-2 text-sm';
+    }
+    &[data-size="medium"] {
+      @apply 'px-7 py-3.5 text-base';
+    }
+    &[data-size="large"] {
+      @apply 'px-8 py-4 text-xl';
+    }
+
+    &[data-color="primary"] {
+      @apply bg-white text-black not-disabled:hover:bg-[#E6E6E6];
+    }
+    &[data-color="secondary"] {
+      @apply bg-[#292929] text-white not-disabled:hover:bg-[#1A1A1A];
+    }
+    &.-icon-only {
+      @apply 'aspect-square';
+    }
+
+    &:disabled {
+      @apply 'cursor-not-allowed bg-[#2929291f]';
+    }
+    &::after{
+      content: "";
+      @apply 'absolute inset-0 flex items-center justify-center'
+    }
+    .btn-text {
+      @apply 'group-hover:animate-moveup';
+    }
+  }
+}
