@@ -2,7 +2,7 @@
 /**
  * Theme Name:       AfzaliWP Boilerplate Theme
  * Author:           Mohammad Afzali
- * Author URI:       https://afzaliwp.technology
+ * Author URI:       https://afzaliwp.com
  */
 
 namespace AfzaliWP;
