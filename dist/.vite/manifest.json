@@ -1,18 +1,11 @@
 {
-  "assets/fonts/IRANSansXV.ttf": {
-    "file": "assets/IRANSansXV-K3qrvHE0.ttf",
-    "src": "assets/fonts/IRANSansXV.ttf"
-  },
   "main.js": {
-    "file": "assets/main-BVGyECGJ.js",
+    "file": "assets/main-BKz3XPcW.js",
     "name": "main",
     "src": "main.js",
     "isEntry": true,
     "css": [
-      "assets/main-CHZnvaPn.css"
-    ],
-    "assets": [
-      "assets/IRANSansXV-K3qrvHE0.ttf"
+      "assets/main-DrzY4tiH.css"
     ]
   }
 }

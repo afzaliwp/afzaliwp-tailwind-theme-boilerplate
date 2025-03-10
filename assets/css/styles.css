@@ -155,16 +155,16 @@
 
 @layer components {
   .btn {
-    @apply 'group inline-flex cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-full font-medium whitespace-nowrap transition-colors';
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-full font-medium whitespace-nowrap transition-colors;
 
     &[data-size="small"] {
-      @apply 'px-4 py-2 text-sm';
+      @apply px-4 py-2 text-sm;
     }
     &[data-size="medium"] {
-      @apply 'px-7 py-3.5 text-base';
+      @apply px-7 py-3.5 text-base;
     }
     &[data-size="large"] {
-      @apply 'px-8 py-4 text-xl';
+      @apply px-8 py-4 text-xl;
     }
 
     &[data-color="primary"] {
@@ -174,18 +174,18 @@
       @apply bg-[#292929] text-white not-disabled:hover:bg-[#1A1A1A];
     }
     &.-icon-only {
-      @apply 'aspect-square';
+      @apply aspect-square;
     }
 
     &:disabled {
-      @apply 'cursor-not-allowed bg-[#2929291f]';
+      @apply cursor-not-allowed bg-[#2929291f];
     }
-    &::after{
+    &::after {
       content: "";
-      @apply 'absolute inset-0 flex items-center justify-center'
+      @apply absolute inset-0 flex items-center justify-center;
     }
     .btn-text {
-      @apply 'group-hover:animate-moveup';
+      @apply group-hover:animate-moveup;
     }
   }
 }
